@@ -23,9 +23,8 @@ nav {
 }
 
 .nav__bar {
-  
   background-color: #24242498;
-  padding: 24px;
+  /* padding: 24px; */
 }
 
 .nav__bar--center {
@@ -38,22 +37,50 @@ nav {
 }
 
 #logo {
-  color: white;
-  font-size: 32px;
+  color: rgba(255, 255, 255, 0.443);
+  font-size: 72px;
+  font-weight: bold;
+  transition: all 600ms ease;
+}
+
+#logo:hover {
+  color: yellow;
 }
 
 .nav__links {
-  display: flex;
+  display: flex; 
+  font-weight: bold;
 }
 
 .nav__list {
   list-style-type: none;
   margin: 0 24px;
+  
 }
 
 .nav__link {
   text-decoration: none;
   color: white;
+}
+
+.link__hover--effect {
+  position: relative;
+}
+
+.link__hover--effect:after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  height: 3px;
+  width: 0;
+  right: 0;
+  background-color: white;
+  transition: all 300ms ease;
+}
+
+.link__hover--effect:hover:after {
+  left: 0;
+  width: 100%;
 }
 
 .nav__search-bar {
@@ -72,6 +99,7 @@ nav {
   position: relative;
   width: 100%;
   max-width: 500px;
+  transition: all 300ms ease;
 } 
 
 .search__input {
@@ -80,6 +108,10 @@ nav {
   background: transparent;
   border-radius: 50px;
   border: 2px solid white;
+}
+
+.search__input:hover {
+  border: 2px solid yellow;
 }
 
 .search__btn {
@@ -136,9 +168,26 @@ GAMES
 
 .game__info {
   padding: 24px;
+  width: 100%;
+  max-width: 400px; 
+  transition: all 300ms ease;
+}
+
+.game__info:hover .label {
+  color: yellow;
+}
+
+.label {
+  transition: all 600ms ease;
 }
 
 .label {
   font-weight: bold;
-  text-decoration: underline;
+  background-color:#242424;
+  margin: 8px 0;
+  line-height: 2;
+}
+
+.game__url--link:active {
+  color: yellow;
 }

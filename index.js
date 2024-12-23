@@ -1,14 +1,21 @@
 // "https://api.allorigins.win/raw?url=https://www.freetogame.com/api/games"
+const gamesEl = document.querySelector('.games')
 
 async function main() {
   try {
     const response = await fetch("https://api.allorigins.win/raw?url=https://www.freetogame.com/api/games");
     const gamesData = await response.json();
-    const gamesEl = document.querySelector('.games')
     console.log(gamesData)
-    gamesEl.innerHTML = gamesData
-      .map(
-        game => `<div class="game">
+    gamesEl.innerHTML = gamesData.map(game => gameHTML(game)).join('');
+  } catch (error) {
+    console.error("Error fetching games:", error);
+  }  
+}
+
+main();
+
+function gameHTML(game) {
+  return `<div class="game">
     <a class="game__link" href="${game.game_url}" target="_blank">
       <figure class="game__img--wrapper">
         <img class="game__img" src="${game.thumbnail}" alt="">
@@ -39,11 +46,13 @@ async function main() {
         <label class="label" for="">Realse Date: </label>
         ${game.release_date}
       </div>
+      <label class="label" for="">Profile Url: </label>
+      <a class="game__url--link" href="${game.freetogame_profile_url}" target="_blank">
+      ${game.freetogame_profile_url}
+      </a>
     </div>
-  </div>`).join('');
-  } catch (error) {
-    console.error("Error fetching games:", error);
-  }  
+    
+  </div>`
 }
 
-main();
+
