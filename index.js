@@ -14,8 +14,13 @@ async function main() {
 
 main();
 
+function showGamePost(id) {
+  localStorage.setItem('id100', id)
+  window.location.href = `${window.location.origin}/game.html`
+}
+
 function gameHTML(game) {
-  return `<div class="game">
+  return `<div class="game" onclick="showGamePost(${game.id})">
     <a class="game__link" href="${game.game_url}" target="_blank">
       <figure class="game__img--wrapper">
         <img class="game__img" src="${game.thumbnail}" alt="">
@@ -51,7 +56,6 @@ function gameHTML(game) {
       ${game.freetogame_profile_url}
       </a>
     </div>
-    
   </div>`
 }
 

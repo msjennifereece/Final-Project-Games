@@ -12,19 +12,28 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  background-color: black;
+}
+
+/*
+
+NAVGIATION BAR
+
+*/
+
 nav {
   width: 100%;
   margin: 0 auto;
   height: 330px;
   background-image: url('/assets/giphy.webp');
-  /* background-repeat: no-repeat; */
-  /* background-attachment: fixed; */
   background-size: 100% 330px;
 }
 
 .nav__bar {
   background-color: #24242498;
   /* padding: 24px; */
+  
 }
 
 .nav__bar--center {
